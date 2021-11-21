@@ -1,0 +1,19 @@
+body, html {
+  font-size: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.smallest {
+  font-size: 10px;
+}
