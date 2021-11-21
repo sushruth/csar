@@ -8,19 +8,14 @@ export const reducer: StateReducer<State, Actions> = async (
   _dispatch
 ) => {
   if (action.type === "change") {
-    const prevState = getState();
     const { i, j } = action.payload;
 
-    return {
-      ...getState(),
-      selected: produce(prevState.selected, (draft) => {
-        draft[i][j] = true;
-      }),
-      selectedIndices: {
-        i,
-        j,
-      },
-    };
+    return produce(getState(), (draft) => {
+      const selectedIndices = draft.selectedIndices;
+      draft.selected[selectedIndices.i][selectedIndices.j] = false;
+      draft.selected[i][j] = true;
+      draft.selectedIndices = { i, j };
+    });
   }
 
   return getState();
