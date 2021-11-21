@@ -1,12 +1,16 @@
-import { useReducer, useRef } from "react";
-import { DeepReadonly, StateReducer } from "./create-state.types";
+import { useEffect, useReducer, useRef } from "react";
+import {
+  CreateStateOptions,
+  DeepReadonly,
+  StateReducer,
+} from "./create-state.types";
 
 const forceReducer = (state: number) => state + 1;
 
-export function createState<State, Actions>(
-  init: State,
-  reducer: StateReducer<State, Actions>
-) {
+export function createState<State, Actions>({
+  init,
+  reducer,
+}: CreateStateOptions<State, Actions>) {
   const handlerMap = new Map<Function, Function>();
   const lastResultMap = new Map<Function, unknown>();
 
@@ -40,6 +44,11 @@ export function createState<State, Actions>(
     stateHolder.state = result as State;
   }
 
+  function unregister(fn: Function) {
+    handlerMap.delete(fn);
+    lastResultMap.delete(fn);
+  }
+
   function useStateSelector<SelectedValue>(
     fn: (state: State) => SelectedValue
   ) {
@@ -54,6 +63,9 @@ export function createState<State, Actions>(
     if (!lastResultMap.has(fnRef.current)) {
       lastResultMap.set(fnRef.current, value);
     }
+
+    // To unregister the handler when component unmounts
+    useEffect(() => unregister(fnRef.current), []);
 
     return value as SelectedValue;
   }

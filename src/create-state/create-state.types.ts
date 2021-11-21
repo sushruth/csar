@@ -35,4 +35,13 @@ export type StateReducer<State, Actions> = (
   action: Actions,
   getState: () => DeepReadonly<State>,
   dispatch: (action: Actions) => Promise<void>
-) => State | DeepReadonly<State> | Promise<State> | Promise<DeepReadonly<State>>
+) =>
+  | State
+  | DeepReadonly<State>
+  | Promise<State>
+  | Promise<DeepReadonly<State>>;
+
+export type CreateStateOptions<State, Actions> = {
+  init: State;
+  reducer: StateReducer<State, Actions>;
+};
