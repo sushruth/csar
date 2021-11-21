@@ -65,7 +65,7 @@ export function createState<State, Actions>({
     }
 
     // To unregister the handler when component unmounts
-    useEffect(() => unregister(fnRef.current), []);
+    useEffect(() => () => unregister(fnRef.current), []);
 
     return value as SelectedValue;
   }
