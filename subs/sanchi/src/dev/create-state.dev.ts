@@ -7,7 +7,6 @@ let devtools = (() => {
   try {
     return (window as any)[devtoolsName] || (window.top as any)[devtoolsName];
   } catch (error) {
-    console.warn("Could not find Redux Devtools extension");
     return undefined;
   }
 })();
@@ -41,23 +40,32 @@ export function addDevtools<State, Actions>({
       test: true, // generate tests for the selected actions
     },
   });
-  devtools?.send("INIT", init);
+
+  devtools?.send("__INIT__", init);
 
   const wrappedReducer: StateReducer<State, Actions> = async (
     action,
     getState,
     dispatch
   ) => {
-    Object.assign(action, {
-      startTime: new Date().toISOString(),
-    });
+    const __startTime = new Date().toISOString();
 
-    const result = await reducer(action, getState, dispatch);
+    const result = reducer(action, getState, dispatch);
+    const output = await result;
 
-    Object.assign(action, {
-      endTime: new Date().toISOString(),
-    });
-    devtools?.send(action, result);
+    if (result instanceof Promise) {
+      devtools?.send(
+        {
+          ...action,
+          __startTime,
+          __endTime: new Date().toISOString(),
+        },
+        output
+      );
+    } else {
+      devtools?.send(action, result);
+    }
+
     return result as State;
   };
 

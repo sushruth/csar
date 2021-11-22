@@ -22,12 +22,14 @@ export function createState<State, Actions>({
     set state(newState: State) {
       this._state = newState;
 
-      for (const fn of handlerMap.keys()) {
+      for (const [fn, handler] of handlerMap.entries()) {
         // Figure out a way to run handlers for ONLY the changed property
-        const handler = handlerMap.get(fn);
+        if (!handler) continue;
+
         const lastResult = lastResultMap.get(fn);
         const newResult = fn(this._state);
-        if (handler && newResult != lastResult) {
+
+        if (newResult != lastResult) {
           lastResultMap.set(fn, newResult);
           handler();
         }

@@ -1,6 +1,6 @@
 import { State } from "./types";
 
-const gridSize = 100;
+const gridSize = 50;
 
 export const init: State = {
   selected: Array(gridSize)
