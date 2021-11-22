@@ -2,10 +2,8 @@
   "name": "sanchi",
   "version": "0.0.1",
   "description": "tiny external state management for react",
-  "source": "./src/index.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "browser": "dist/index.js",
   "types": "dist/index.esm.d.ts",
   "sideEffects": false,
   "repository": {
@@ -26,7 +24,6 @@
   "homepage": "https://github.com/sushruth/create-state#readme",
   "devDependencies": {
     "esbuild": "0.13.15",
-    "react": "17.0.2",
     "typescript": "4.5.2"
   },
   "peerDependencies": {

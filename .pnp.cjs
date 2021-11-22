@@ -10209,7 +10209,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["sanchi", "workspace:subs/sanchi"],
             ["esbuild", "npm:0.13.15"],
-            ["react", "npm:17.0.2"],
             ["typescript", "patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=ddd1e8"]
           ],
           "linkType": "SOFT",

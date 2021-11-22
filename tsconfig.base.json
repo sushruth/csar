@@ -19,9 +19,6 @@
       "sanchi": [
         "./subs/sanchi/src/index.ts"
       ],
-      "sanchi/dev": [
-        "./subs/sanchi/src/dev/index.ts"
-      ]
     }
   }
 }

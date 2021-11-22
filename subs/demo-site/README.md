@@ -1,1 +1,1 @@
-# TODO
+This is a demo site that uses `sanchi` to manage state. Browse through the code to find out more!

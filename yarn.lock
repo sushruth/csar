@@ -7441,7 +7441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:17.0.2, react@npm:^17.0.2":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -7751,7 +7751,6 @@ __metadata:
   resolution: "sanchi@workspace:subs/sanchi"
   dependencies:
     esbuild: 0.13.15
-    react: 17.0.2
     typescript: 4.5.2
   peerDependencies:
     "@types/react": 17.0.36

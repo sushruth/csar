@@ -36,12 +36,3 @@ buildAndAnalyze({
   target: ["node14"],
   outfile: "dist/index.esm.js",
 });
-
-// browser field
-buildAndAnalyze({
-  entryPoints: ["./src/index.ts"],
-  format: "iife",
-  platform: "browser",
-  target: ["chrome80"],
-  outfile: "dist/index.js",
-});
