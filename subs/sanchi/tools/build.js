@@ -6,15 +6,16 @@ const commonOptions = {
   minify: process.argv.includes("--minify"),
 };
 
-async function buildAndAnalyze(options) {
-  let esbuild = require("esbuild");
+const esbuild = require("esbuild");
 
-  let result = await esbuild.build({
+async function buildAndAnalyze(options) {
+
+  const result = await esbuild.build({
     ...commonOptions,
     ...options,
   });
 
-  let text = await esbuild.analyzeMetafile(result.metafile, {
+  const text = await esbuild.analyzeMetafile(result.metafile, {
     verbose: true,
   });
 
