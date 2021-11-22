@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outFile": "./dist/index.esm.d.ts"
+  },
+  "include": [
+    "src/index.ts"
+  ]
+}

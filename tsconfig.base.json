@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es6",
+    "allowJs": true,
+    "jsx": "react",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "noEmit": true,
+    "downlevelIteration": true,
+    "strictNullChecks": true,
+    "paths": {
+      "sanchi": [
+        "./subs/sanchi/src/index.ts"
+      ],
+      "sanchi/dev": [
+        "./subs/sanchi/src/dev/index.ts"
+      ]
+    }
+  }
+}
