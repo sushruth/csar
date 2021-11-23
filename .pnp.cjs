@@ -10193,6 +10193,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/sanchi-virtual-32bf12b000/1/subs/sanchi/",
           "packageDependencies": [
             ["sanchi", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#workspace:subs/sanchi"],
+            ["@types/node", "npm:16.11.9"],
             ["@types/react", "npm:17.0.36"],
             ["esbuild", "npm:0.13.15"],
             ["react", "npm:17.0.2"],
@@ -10208,6 +10209,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./subs/sanchi/",
           "packageDependencies": [
             ["sanchi", "workspace:subs/sanchi"],
+            ["@types/node", "npm:16.11.9"],
+            ["@types/react", "npm:17.0.36"],
             ["esbuild", "npm:0.13.15"],
             ["typescript", "patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=493e53"]
           ],

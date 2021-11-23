@@ -12,6 +12,10 @@
       "esnext",
       "dom"
     ],
+    "types": [
+      "@types/react",
+      "@types/node"
+    ],
     "noEmit": true,
     "downlevelIteration": true,
     "strictNullChecks": true,
