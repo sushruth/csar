@@ -48,7 +48,7 @@ const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
   );
 
   return (
-    <div className="smallest" onMouseEnter={changeSelected} onClick={changeSelected}>
+    <div className={`smallest ${isSelected && "selected"}`} onMouseEnter={changeSelected} onClick={changeSelected}>
       {isSelected ? "✅" : "🟦"}
     </div>
   );
