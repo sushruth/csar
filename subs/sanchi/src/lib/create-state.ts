@@ -56,15 +56,9 @@ export function createState<State, Actions>({
   ) {
     const fnRef = useRef(fn);
     const [, rerender] = useReducer(forceReducer, 0);
+
     const value = fnRef.current(stateHolder.state);
-
-    if (!handlerMap.has(fnRef.current)) {
-      handlerMap.set(fnRef.current, rerender);
-    }
-
-    if (!lastResultMap.has(fnRef.current)) {
-      lastResultMap.set(fnRef.current, value);
-    }
+    handlerMap.set(fnRef.current, rerender);
 
     // To unregister the handler when component unmounts
     useEffect(() => () => unregister(fnRef.current), []);

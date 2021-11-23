@@ -17,7 +17,7 @@ export default function App() {
   );
 }
 
-const Grid: React.FC = React.memo(() => {
+const Grid: React.FC = () => {
   return (
     <ul className="col">
       {init.selected.map((row, i) => (
@@ -31,11 +31,11 @@ const Grid: React.FC = React.memo(() => {
       ))}
     </ul>
   );
-});
+};
 
 const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
   const isSelected = useStateSelector((state) => state.selected[i][j]);
-  const onClick = useCallback(
+  const changeSelected = useCallback(
     () =>
       dispatch({
         type: "change",
@@ -48,7 +48,7 @@ const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
   );
 
   return (
-    <div className="smallest" onClick={onClick}>
+    <div className="smallest" onMouseEnter={changeSelected} onClick={changeSelected}>
       {isSelected ? "✅" : "🟦"}
     </div>
   );
