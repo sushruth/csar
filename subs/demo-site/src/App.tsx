@@ -35,7 +35,7 @@ const Grid: React.FC = () => {
 
 const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
   const isSelected = useStateSelector((state) => state.selected[i][j]);
-  const changeSelected = useCallback(
+  const onClick = useCallback(
     () =>
       dispatch({
         type: "change",
@@ -48,7 +48,7 @@ const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
   );
 
   return (
-    <div className={`smallest ${isSelected && "selected"}`} onMouseEnter={changeSelected} onClick={changeSelected}>
+    <div className="smallest" onMouseEnter={onClick} onClick={onClick}>
       {isSelected ? "✅" : "🟦"}
     </div>
   );
