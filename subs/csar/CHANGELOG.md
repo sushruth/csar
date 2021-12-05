@@ -1,3 +1,12 @@
+## 0.0.3
+**Date:** 5 December 2021
+
+### `csar`
+
+This is mostly a maintenance release. No changes in features.
+
+- Improved ESM export
+
 ## 0.0.2
 **Date:** 5 December 2021
 

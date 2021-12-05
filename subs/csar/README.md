@@ -118,7 +118,7 @@ Reducers for createState have some bonuses -
 ## Benefits of async reducers
 
 1. Network calls can happen inside the reducer now
-2. composing a bunch of dispatchs can happen within the reducer - all business logic is now in the reducer.
+2. composing a bunch of dispatches can happen within the reducer - all business logic is now in the reducer.
 3. I avoid adding a bunch of libraries just to get some of the above basic functionality
 
 ## Dangers of async reducers - 
@@ -139,15 +139,6 @@ if you call `getState()` at the very end of your async handler for a given actio
 # `esbuild` analysis of the build
 
 ```
-
-  dist/index.esm.js ────────────── 1.1kb ─ 100.0%
-   ├ src/dev/create-state.dev.ts ─ 556b ─── 48.6%
-   │  └ src/dev/index.ts
-   │     └ src/index.ts
-   └ src/lib/create-state.ts ───── 546b ─── 47.7%
-      └ src/index.ts
-
-
   dist/index.cjs.js ────────────── 2.1kb ─ 100.0%
    ├ src/dev/create-state.dev.ts ─ 594b ─── 28.0%
    │  └ src/dev/index.ts
@@ -155,5 +146,13 @@ if you call `getState()` at the very end of your async handler for a given actio
    ├ src/lib/create-state.ts ───── 546b ─── 25.7%
    │  └ src/index.ts
    └ src/index.ts ───────────────── 49b ──── 2.3%
+
+
+  dist/index.mjs ───────────────── 1.1kb ─ 100.0%
+   ├ src/dev/create-state.dev.ts ─ 556b ─── 48.6%
+   │  └ src/dev/index.ts
+   │     └ src/index.ts
+   └ src/lib/create-state.ts ───── 546b ─── 47.7%
+      └ src/index.ts
 
 ```

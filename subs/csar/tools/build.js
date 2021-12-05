@@ -34,6 +34,7 @@ buildAndAnalyze({
 buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
-  target: ["node14"],
+  platform: "neutral",
+  target: ["es2020"],
   outfile: "dist/index.mjs",
 });
