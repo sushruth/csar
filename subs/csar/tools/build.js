@@ -34,6 +34,6 @@ buildAndAnalyze({
 buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
-  target: ["esnext"],
+  target: ["node14"],
   outfile: "dist/index.esm.js",
 });
