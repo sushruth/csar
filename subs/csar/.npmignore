@@ -1,5 +1,5 @@
 src/
-tools/
+scripts/
 coverage/
 ./tsconfig.*
 ./jest.config.*

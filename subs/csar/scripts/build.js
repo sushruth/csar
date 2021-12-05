@@ -1,7 +1,9 @@
+const { name, peerDependencies } = require("../package.json");
+
 const commonOptions = {
   bundle: true,
   sourcemap: "external",
-  external: ["react"],
+  external: Object.keys(peerDependencies),
   metafile: true,
   minify: process.argv.includes("--minify"),
 };
@@ -9,7 +11,6 @@ const commonOptions = {
 const esbuild = require("esbuild");
 
 async function buildAndAnalyze(options) {
-
   const result = await esbuild.build({
     ...commonOptions,
     ...options,
@@ -36,5 +37,15 @@ buildAndAnalyze({
   format: "esm",
   platform: "neutral",
   target: ["es2020"],
-  outfile: "dist/index.mjs",
+  outfile: "dist/index.esm.js",
+});
+
+// BROWSER field
+buildAndAnalyze({
+  entryPoints: ["./src/index.ts"],
+  format: "iife",
+  globalName: name,
+  platform: "browser",
+  target: ["es2015"],
+  outfile: "dist/index.umd.js",
 });

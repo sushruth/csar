@@ -1,9 +1,5 @@
 import { useEffect, useReducer, useRef } from "react";
-import {
-  CreateStateOptions,
-  DeepReadonly,
-  StateReducer,
-} from "./create-state.types";
+import { CreateStateOptions, DeepReadonly } from "./create-state.types";
 
 const forceReducer = (state: number) => state + 1;
 
