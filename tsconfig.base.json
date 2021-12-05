@@ -20,8 +20,8 @@
     "downlevelIteration": true,
     "strictNullChecks": true,
     "paths": {
-      "sanchi": [
-        "./subs/sanchi/src/index.ts"
+      "csar": [
+        "./subs/csar/src/index.ts"
       ],
     }
   }

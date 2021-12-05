@@ -1,0 +1,62 @@
+{
+  "name": "csar",
+  "version": "0.0.1",
+  "description": "tiny external state management for react",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "src/index.ts",
+  "publishConfig": {
+    "types": "./dist/index.esm.d.ts"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushruth/create-state.git"
+  },
+  "scripts": {
+    "compile": "node ./tools/build.js --minify",
+    "typegen": "tsc -P ./tsconfig.json",
+    "build": "yarn compile && yarn typegen",
+    "prepublish": "yarn build",
+    "watch": "compile --watch",
+    "test": "jest --config=./jest.config.js --verbose --runInBand"
+  },
+  "author": {
+    "email": "shastry.sushruth@gmail.com",
+    "name": "Sushruth Sastry"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sushruth/create-state/issues"
+  },
+  "homepage": "https://github.com/sushruth/create-state#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/node": "^16.11.9",
+    "@types/react": "17.0.36",
+    "esbuild": "0.13.15",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^27.4.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "4.5.2"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "keywords": [
+    "state",
+    "management",
+    "react",
+    "tiny",
+    "async",
+    "reducers",
+    "dispatch",
+    "redux",
+    "no context",
+    "context-less",
+    "context-free"
+  ]
+}

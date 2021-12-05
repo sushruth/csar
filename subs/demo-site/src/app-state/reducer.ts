@@ -1,6 +1,6 @@
 import { Actions, State } from "./types";
 import { produce } from "immer";
-import { StateReducer } from "sanchi";
+import { StateReducer } from "csar";
 
 export const reducer: StateReducer<State, Actions> = async (
   action,

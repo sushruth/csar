@@ -8,13 +8,14 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "start": "parcel src/index.html",
-    "build-prod": "parcel build src/index.html"
+    "build-prod": "parcel build src/index.html",
+    "build": "yarn build-prod"
   },
   "dependencies": {
+    "csar": "workspace:*",
     "immer": "9.0.6",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "sanchi": "workspace:*"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
