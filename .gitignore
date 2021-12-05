@@ -8,9 +8,8 @@
 !.yarn/versions
 
 
-# parcel and other caches
+# caches and side effects
 .cache/
-.parcel-cache/
 coverage/
 dist/*
 node_modules/

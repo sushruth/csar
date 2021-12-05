@@ -7,14 +7,13 @@
   "author": "",
   "license": "ISC",
   "private": true,
+  "defaultWorkspaceRoot": "subs",
   "workspaces": [
     "subs/*",
     "tools/*"
   ],
   "packageManager": "yarn@3.2.0-rc.5",
   "devDependencies": {
-    "@parcel/packager-ts": "^2.0.1",
-    "@parcel/transformer-typescript-types": "^2.0.1",
     "@types/node": "16.11.9",
     "@types/react": "17.0.36",
     "@typescript-eslint/eslint-plugin": "5.4.0",

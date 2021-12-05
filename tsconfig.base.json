@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "strict": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
@@ -7,6 +8,7 @@
     "moduleResolution": "node",
     "target": "es6",
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "lib": [
       "esnext",
@@ -16,13 +18,7 @@
       "@types/react",
       "@types/node"
     ],
-    "noEmit": true,
     "downlevelIteration": true,
     "strictNullChecks": true,
-    "paths": {
-      "csar": [
-        "./subs/csar/src/index.ts"
-      ],
-    }
   }
 }

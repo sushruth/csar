@@ -2,7 +2,7 @@ import * as React from "react";
 import { useCallback, useEffect } from "react";
 import { init } from "./app-state/init";
 import { useStateSelector, dispatch } from "./app-state/state";
-import "./app.css";
+import "./styles.css";
 
 export default function App() {
   const selectedIndices = useStateSelector((state) => state.selectedIndices);

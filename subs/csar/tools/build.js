@@ -35,5 +35,5 @@ buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
   target: ["node14"],
-  outfile: "dist/index.esm.js",
+  outfile: "dist/index.mjs",
 });

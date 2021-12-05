@@ -3,10 +3,10 @@
   "version": "0.0.2",
   "description": "tiny external state management for react without contexts",
   "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.mjs",
   "types": "src/index.ts",
   "publishConfig": {
-    "types": "./dist/index.esm.d.ts"
+    "types": "./dist/index.d.ts"
   },
   "sideEffects": false,
   "repository": {
@@ -15,10 +15,10 @@
   },
   "scripts": {
     "compile": "node ./tools/build.js --minify",
-    "typegen": "tsc -P ./tsconfig.json",
+    "typegen": "tsc -p ./tsconfig.lib.json",
     "build": "yarn compile && yarn typegen",
     "prepublish": "yarn build",
-    "watch": "compile --watch",
+    "watch": "yarn compile --watch",
     "test": "jest --config=./jest.config.js --verbose --runInBand"
   },
   "author": {
@@ -34,6 +34,7 @@
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.0.3",
     "@types/node": "^16.11.9",
     "@types/react": "17.0.36",
     "esbuild": "0.13.15",
