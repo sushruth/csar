@@ -1,7 +1,7 @@
 {
   "name": "csar",
-  "version": "0.0.1",
-  "description": "tiny external state management for react",
+  "version": "0.0.2",
+  "description": "tiny external state management for react without contexts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "src/index.ts",
@@ -11,7 +11,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sushruth/create-state.git"
+    "url": "git+https://github.com/sushruth/csar.git"
   },
   "scripts": {
     "compile": "node ./tools/build.js --minify",
@@ -27,9 +27,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sushruth/create-state/issues"
+    "url": "https://github.com/sushruth/csar/issues"
   },
-  "homepage": "https://github.com/sushruth/create-state#readme",
+  "homepage": "https://github.com/sushruth/csar/blob/main/subs/csar/README.md#readme",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.0",
     "@testing-library/react": "^12.1.2",
