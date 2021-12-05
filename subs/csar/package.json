@@ -1,7 +1,7 @@
 {
   "name": "csar",
   "version": "0.0.2",
-  "description": "tiny external state management for react without contexts",
+  "description": "Tiny external state management for react without contexts, with async reducers",
   "main": "dist/index.cjs.js",
   "module": "dist/index.mjs",
   "types": "src/index.ts",
