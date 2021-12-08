@@ -23,54 +23,59 @@ export function addDevtools<State, Actions>({
   State,
   Actions
 > {
-  devtools?.connect({
-    name: name || `ProxyState ${instanceId++}`,
-    serialize: {
-      replacer,
-      reviver,
-    },
-    features: {
-      persist: false, // persist states on page reloading
-      export: true, // export history of actions in a file
-      import: "custom", // import history of actions from a file
-      jump: false, // jump back and forth (time travelling)
-      skip: false, // skip (cancel) actions
-      reorder: false, // drag and drop actions in the history list
-      dispatch: true, // dispatch custom actions or action creators
-      test: true, // generate tests for the selected actions
-    },
-  });
+  if (devtools) {
 
-  devtools?.send("__INIT__", init);
+    devtools.connect({
+      name: name || `ProxyState ${instanceId++}`,
+      serialize: {
+        replacer,
+        reviver,
+      },
+      features: {
+        persist: false, // persist states on page reloading
+        export: true, // export history of actions in a file
+        import: "custom", // import history of actions from a file
+        jump: false, // jump back and forth (time travelling)
+        skip: false, // skip (cancel) actions
+        reorder: false, // drag and drop actions in the history list
+        dispatch: true, // dispatch custom actions or action creators
+        test: true, // generate tests for the selected actions
+      },
+    });
 
-  const wrappedReducer: StateReducer<State, Actions> = async (
-    action,
-    getState,
-    dispatch
-  ) => {
-    const __startTime = new Date().toISOString();
+    devtools.send("__INIT__", init);
 
-    const result = reducer(action, getState, dispatch);
-    const output = await result;
+    const wrappedReducer: StateReducer<State, Actions> = async (
+      action,
+      getState,
+      dispatch
+    ) => {
+      const __startTime = new Date().toISOString();
 
-    if (result instanceof Promise) {
-      devtools?.send(
-        {
-          ...action,
-          __startTime,
-          __endTime: new Date().toISOString(),
-        },
-        output
-      );
-    } else {
-      devtools?.send(action, result);
-    }
+      const result = reducer(action, getState, dispatch);
+      const output = await result;
 
-    return result as State;
-  };
+      if (result instanceof Promise) {
+        devtools.send(
+          {
+            ...action,
+            __startTime,
+            __endTime: new Date().toISOString(),
+          },
+          output
+        );
+      } else {
+        devtools.send(action, result);
+      }
 
-  return {
-    reducer: wrappedReducer,
-    init,
-  };
+      return result as State;
+    };
+
+    return {
+      reducer: wrappedReducer,
+      init,
+    };
+  } else {
+    return { reducer, init }
+  }
 }

@@ -137,13 +137,6 @@ if you call `getState()` at the very end of your async handler for a given actio
 # `esbuild` analysis
 
 ```
-  dist/index.esm.js ────────────── 1.1kb ─ 100.0%
-   ├ src/dev/create-state.dev.ts ─ 556b ─── 48.6%
-   │  └ src/dev/index.ts
-   │     └ src/index.ts
-   └ src/lib/create-state.ts ───── 546b ─── 47.7%
-      └ src/index.ts
-
 
   dist/index.cjs.js ────────────── 2.1kb ─ 100.0%
    ├ src/dev/create-state.dev.ts ─ 594b ─── 28.0%
@@ -154,12 +147,11 @@ if you call `getState()` at the very end of your async handler for a given actio
    └ src/index.ts ───────────────── 49b ──── 2.3%
 
 
-  dist/index.umd.js ────────────── 2.6kb ─ 100.0%
-   ├ src/dev/create-state.dev.ts ─ 616b ─── 22.9%
+  dist/index.esm.js ────────────── 1.2kb ─ 100.0%
+   ├ src/dev/create-state.dev.ts ─ 591b ─── 50.1%
    │  └ src/dev/index.ts
    │     └ src/index.ts
-   ├ src/lib/create-state.ts ───── 567b ─── 21.1%
-   │  └ src/index.ts
-   └ src/index.ts ───────────────── 52b ──── 1.9%
+   └ src/lib/create-state.ts ───── 546b ─── 46.3%
+      └ src/index.ts
 
 ```

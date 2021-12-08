@@ -27,7 +27,7 @@ async function buildAndAnalyze(options) {
 buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "cjs",
-  target: ["node14"],
+  target: ["es2015"],
   outfile: "dist/index.cjs.js",
 });
 
@@ -36,6 +36,6 @@ buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
   platform: "browser",
-  target: ["es2020"],
+  target: ["es2018"],
   outfile: "dist/index.esm.js",
 });

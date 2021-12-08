@@ -1,4 +1,14 @@
-## 0.0.5
+## 0.1.0
+**Date:** 7 December 2021
+
+No changes in features
+
+- Dropping esbuild target to `es2015` for `cjs`
+- Dropping esbuild target to `es2017` for `esm`
+
+for wider support
+
+## 0.0.6
 **Date:** 7 December 2021
 
 No changes in features
