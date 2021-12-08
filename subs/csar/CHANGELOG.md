@@ -1,3 +1,10 @@
+## 0.0.5
+**Date:** 7 December 2021
+
+No changes in features
+
+- Removing UMD export since webpack defaults to that and it fails PROD builds when `NODE_ENV` is used as per documentation
+
 ## 0.0.4
 **Date:** 5 December 2021
 
