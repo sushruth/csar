@@ -10,6 +10,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "start": "webpack serve --mode development",
+    "watch": "webpack watch --mode development",
     "build-prod": "webpack --mode production",
     "build": "yarn build-prod"
   },

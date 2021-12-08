@@ -5,51 +5,23 @@ import { useStateSelector, dispatch } from "./app-state/state";
 import "./styles.css";
 
 export default function App() {
-  const selectedIndices = useStateSelector((state) => state.selectedIndices);
-
   return (
-    <>
-      <h1>
-        Selected = {selectedIndices.i}, {selectedIndices.j}
-      </h1>
-      <Grid />
-    </>
-  );
-}
+    <div className="container">
+      <div className="fixed-width flex col center">
+        <h1>
+          <code className="shrink">csar</code>
+        </h1>
+        <span className="subtitle">Context-less state with async reducers</span>
+        <div className="flex spaced center">
+          <a className="flex center" href="https://www.npmjs.com/package/csar">
+            <img src="https://img.shields.io/npm/v/csar?style=flat-square" alt="npm" />
+          </a>
+          <img src="https://img.shields.io/bundlephobia/minzip/csar?style=flat-square" alt="" />
+        </div>
+        <div className="flex card">
 
-const Grid: React.FC = () => {
-  return (
-    <ul className="col">
-      {init.selected.map((row, i) => (
-        <li key={i} className="row">
-          {row.map((_, j) => (
-            <span key={j}>
-              <CustomComp i={i} j={j} />
-            </span>
-          ))}
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const CustomComp: React.FC<{ i: number; j: number }> = ({ i, j }) => {
-  const isSelected = useStateSelector((state) => state.selected[i][j]);
-  const onClick = useCallback(
-    () =>
-      dispatch({
-        type: "change",
-        payload: {
-          i,
-          j,
-        },
-      }),
-    [i, j]
-  );
-
-  return (
-    <div className="smallest" onMouseEnter={onClick} onClick={onClick}>
-      {isSelected ? "✅" : "🟦"}
+        </div>
+      </div>
     </div>
   );
-};
+}
