@@ -17,6 +17,7 @@
   "dependencies": {
     "csar": "workspace:^",
     "immer": "^9.0.7",
+    "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -25,6 +26,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@types/node": "^16.11.11",
+    "@types/prismjs": "^1.16.6",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
