@@ -35,17 +35,7 @@ buildAndAnalyze({
 buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
-  platform: "neutral",
+  platform: "browser",
   target: ["es2020"],
   outfile: "dist/index.esm.js",
-});
-
-// BROWSER field
-buildAndAnalyze({
-  entryPoints: ["./src/index.ts"],
-  format: "iife",
-  globalName: name,
-  platform: "browser",
-  target: ["es2015"],
-  outfile: "dist/index.umd.js",
 });
