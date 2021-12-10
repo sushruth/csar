@@ -21,7 +21,8 @@ async function buildAndAnalyze(options) {
     verbose: true,
   });
 
-  console.log(text);
+  process.stdout.write(text);
+  process.stdout.write('\n');
 }
 
 // MAIN field
