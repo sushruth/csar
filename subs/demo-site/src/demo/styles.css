@@ -1,0 +1,33 @@
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
+    local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI"),
+    local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+html,
+body {
+  font-family: "system";
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 100%;
+}
+
+button {
+  background: #000a;
+  color: #fff;
+  font-family: system;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+}
+
+button:active {
+  background: #000;
+  color: #fff;
+}

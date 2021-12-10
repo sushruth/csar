@@ -1,0 +1,46 @@
+.drawing-container {
+  box-shadow: 0 0 0.5rem #00000033;
+  background-color: #00000007;
+  line-height: 0;
+  display: flex;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.single {
+  display: inline-block;
+  user-select: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.flex.gap > *:not(:last-child) {
+  margin-block-end: 1rem;
+}
+
+.flex.col {
+  flex-direction: column;
+}
+
+.flex.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex .full {
+  flex: 1;
+  width: 100%;
+}
+
+.flex .shrink {
+  align-self: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}

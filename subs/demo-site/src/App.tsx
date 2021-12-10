@@ -1,14 +1,11 @@
-import Prism from 'prismjs'
-import React, { useLayoutEffect } from 'react'
-
+import { Sandpack } from '@codesandbox/sandpack-react'
+import React from 'react'
 import './styles.css'
 import './theme.css'
 
-export default function App() {
-  useLayoutEffect(() => {
-    Prism.highlightAll()
-  }, [])
+declare const demoContent: Record<string, string>
 
+export default function App() {
   return (
     <div className="container line-numbers">
       <div className="fixed-width flex col center">
@@ -43,6 +40,33 @@ export default function App() {
           </a>
         </div>
         <div className="flex center col">
+          <div className="card flex full col">
+            <span className="header">Usage and demo</span>
+            <div className="flex stretch full wrap">
+              <Sandpack
+                template="react-ts"
+                files={demoContent}
+                customSetup={{
+                  dependencies: {
+                    csar: '^0.1.0',
+                    immer: '9.0.7',
+                  },
+                }}
+                options={{
+                  openPaths: [
+                    '/src/drawing-surface/drawing-surface.tsx',
+                    '/src/drawing-surface/single.tsx',
+                    '/src/app-state/state.ts',
+                    '/src/app-state/reducer.ts',
+                  ],
+                  editorHeight: '500px',
+                  editorWidthPercentage: 70,
+                  activePath: '/src/app-state/state.ts',
+                  showLineNumbers: true,
+                }}
+              />
+            </div>
+          </div>
           <div className="card flex full col">
             <span className="header">What is this?</span>
             <div>
@@ -87,24 +111,6 @@ export default function App() {
                 plugins to achieve async state updates outside of a component.
               </li>
             </ul>
-          </div>
-          <div className="card flex full col">
-            <span className="header">Usage and demo</span>
-            <div className="flex center full">
-              <iframe
-                src="https://codesandbox.io/embed/determined-feistel-u0umw?autoresize=1&codemirror=1&fontsize=13&hidenavigation=1&module=%2Fsrc%2Fdrawing-surface%2Fsingle.tsx&theme=dark"
-                style={{
-                  width: '100%',
-                  height: '500px',
-                  border: 0,
-                  borderRadius: 4,
-                  overflow: 'hidden',
-                }}
-                title="csar-demo"
-                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-              />
-            </div>
           </div>
         </div>
       </div>

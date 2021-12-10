@@ -3,15 +3,12 @@ import { hydrate, render } from "react-dom";
 import App from "./App";
 
 import 'normalize.css/normalize.css'
-// Import PrismJS extensions
-import './prism-theme.css';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-jsx';
-import 'prismjs/components/prism-tsx';
 
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+// somehow this file isn't right.
+//@ts-expect-error
+import * as some from '@codesandbox/sandpack-react/dist/index.css';
+
+some;
 
 const rootElement = document.getElementById("app");
 if (rootElement?.hasChildNodes()) {
