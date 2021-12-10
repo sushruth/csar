@@ -2,9 +2,10 @@ const { name, peerDependencies } = require("../package.json");
 
 const commonOptions = {
   bundle: true,
-  sourcemap: "external",
+  sourcemap: true,
   external: Object.keys(peerDependencies),
   metafile: true,
+  watch: process.argv.includes("--watch"),
   minify: process.argv.includes("--minify"),
 };
 
@@ -36,6 +37,6 @@ buildAndAnalyze({
   entryPoints: ["./src/index.ts"],
   format: "esm",
   platform: "browser",
-  target: ["es2018"],
+  target: ["es6"],
   outfile: "dist/index.esm.js",
 });

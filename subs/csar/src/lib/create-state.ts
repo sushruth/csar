@@ -1,7 +1,7 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { CreateStateOptions, DeepReadonly } from "./create-state.types";
 
-const forceReducer = (state: number) => state + 1;
+const forceUpdate = (state: number) => state + 1;
 
 export function createState<State, Actions>({
   init,
@@ -51,15 +51,22 @@ export function createState<State, Actions>({
     fn: (state: State) => SelectedValue
   ) {
     const fnRef = useRef(fn);
-    const [, rerender] = useReducer(forceReducer, 0);
+    const value = fnRef.current(stateHolder.state) as SelectedValue;
 
-    const value = fnRef.current(stateHolder.state);
-    handlerMap.set(fnRef.current, rerender);
+    // re-render mechanism
+    // somehow useState seems to be less blocking than useReducer
+    const [, setState] = useState(0);
+    const rerender = useCallback(() => setState(forceUpdate), []);
 
     // To unregister the handler when component unmounts
     useEffect(() => () => unregister(fnRef.current), []);
 
-    return value as SelectedValue;
+    if (!handlerMap.has(fnRef.current)) {
+      handlerMap.set(fnRef.current, rerender);
+      lastResultMap.set(fnRef.current, value);
+    }
+
+    return value;
   }
 
   return [dispatch, useStateSelector, getState] as const;

@@ -1,3 +1,10 @@
+## 0.1.1
+**Date:** 9 December 2021
+
+- Performance improvements
+  - saves calculated initial values in the first run now.
+  - Uses `useState` instead of `useReducer` internally - somehow this is less blocking
+
 ## 0.1.0
 **Date:** 7 December 2021
 

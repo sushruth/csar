@@ -1,0 +1,7 @@
+:root {
+  --code-bg: #00000022;
+}
+
+html[data-theme='dark'] {
+  --code-bg: #ffffff22;
+}

@@ -1,35 +1,45 @@
 {
   "name": "demo-site",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "private": true,
+  "author": "Sushruth Sastry",
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack --mode development",
     "start": "webpack serve --mode development",
-    "build-prod": "webpack --mode production",
+    "watch": "webpack watch --mode development",
+    "build-prod": "webpack --mode production && react-snap",
     "build": "yarn build-prod"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "dependencies": {
     "csar": "workspace:^",
     "immer": "^9.0.7",
+    "normalize.css": "^8.0.1",
+    "prismjs": "^1.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
     "@types/node": "^16.11.11",
+    "@types/prismjs": "^1.16.6",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
-    "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
+    "esbuild-loader": "^2.16.0",
     "html-webpack-plugin": "^5.5.0",
     "pnp-webpack-plugin": "^1.7.0",
+    "react-snap": "^1.23.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.2",
