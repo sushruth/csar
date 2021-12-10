@@ -16,7 +16,7 @@ export default function App() {
           <code className="title shrink">csar</code>
         </h1>
         <span className="subtitle">Context-less state with async reducers</span>
-        <div className="flex spaced center">
+        <div className="flex spaced center wrap">
           <a className="flex center" href="https://www.npmjs.com/package/csar">
             <img
               src="https://img.shields.io/npm/v/csar?style=flat-square"
