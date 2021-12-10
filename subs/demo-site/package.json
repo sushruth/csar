@@ -16,7 +16,11 @@
     "build": "yarn build-prod"
   },
   "reactSnap": {
-    "source": "dist"
+    "source": "dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "dependencies": {
     "csar": "workspace:^",
