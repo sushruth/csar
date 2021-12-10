@@ -3,28 +3,23 @@
   font-family: system;
   font-style: normal;
   font-weight: 300;
-  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
-    local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI"),
-    local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+  src: local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'),
+    local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI'),
+    local('Roboto-Light'), local('DroidSans'), local('Tahoma');
 }
 
 body,
 html {
-  font-family: "system";
+  font-family: 'system';
   font-size: 14px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   line-height: 1.5;
-  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 p {
-  margin: 0
+  margin: 0;
 }
 
 a {
@@ -62,8 +57,10 @@ a {
 }
 
 .fixed-width {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .flex {
@@ -71,6 +68,10 @@ a {
   flex-direction: row;
   align-items: stretch;
   justify-content: center;
+}
+
+.flex.gap > *:not(:last-child) {
+  margin-block-end: 1rem;
 }
 
 .flex.col {
@@ -91,8 +92,13 @@ a {
   align-self: center;
 }
 
-.code {
-  font-family: monospace;
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
+code.title {
+  font-size: unset;
+  color: #000;
   padding: 0.2rem 0.8rem;
   border-radius: 0.3rem;
   background: #00000022;
@@ -108,11 +114,47 @@ a {
 }
 
 .card {
-  margin-top: 1rem;
-  max-width: 50rem;
+  margin-top: 0.5rem;
 }
 
 .card .header {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.drawing-container {
+  box-shadow: 0 0 0.5rem #00000033;
+  background-color: #00000011;
+  line-height: 0;
+  display: flex;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.single {
+  display: inline-block;
+  user-select: none;
+}
+
+button {
+  background: #000a;
+  color: #fff;
+  font-family: system;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+}
+
+button:active {
+  background: #000;
+  color: #fff;
+}
+
+iframe {
+  box-shadow: 0 0 5px #00000033;
 }
