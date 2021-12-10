@@ -83,7 +83,7 @@ a {
   justify-content: center;
 }
 
-.flex .full {
+.flex .full, .flex .full > * {
   flex: 1;
   width: 100%;
 }
@@ -96,7 +96,12 @@ a {
   flex-wrap: wrap;
 }
 
-code.title {
+.flex.stretch {
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+code {
   font-size: unset;
   color: #000;
   padding: 0.2rem 0.8rem;

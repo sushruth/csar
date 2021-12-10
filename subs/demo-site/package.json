@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^0.10.2",
     "csar": "workspace:^",
     "immer": "^9.0.7",
     "normalize.css": "^8.0.1",
