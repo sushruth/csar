@@ -6,7 +6,7 @@ Short for "**Context-less state & async reducers**". A simple external state hel
 
 I wanted to recreate what [zustand](https://github.com/pmndrs/zustand) / [jotai](https://github.com/pmndrs/jotai) / [valtio](https://github.com/pmndrs/valtio) do but smaller. I ended up with something that has fewer features and maybe even less optimized. If you want a more production-tested library, look to those.
 
-However, `csar` is about **546 bytes** minified, by itself, when devtools aren't included (can be tree-shaken away for prod builds). I like that. It makes it easier for me to make other smaller libraries which need this type of global state. It has a few benefits too.
+However, `csar` is about **642 bytes** minified, by itself, when devtools aren't included (can be tree-shaken away for prod builds). I like that. It makes it easier for me to make other smaller libraries which need this type of global state. It has a few benefits too.
 
 ## Install
 
@@ -138,20 +138,20 @@ if you call `getState()` at the very end of your async handler for a given actio
 
 ```
 
-  dist/index.cjs.js ────────────── 2.1kb ─ 100.0%
-   ├ src/dev/create-state.dev.ts ─ 594b ─── 28.0%
-   │  └ src/dev/index.ts
-   │     └ src/index.ts
-   ├ src/lib/create-state.ts ───── 546b ─── 25.7%
+  dist/index.cjs.js ────────────── 2.4kb ─ 100.0%
+   ├ src/lib/create-state.ts ───── 640b ─── 25.9%
    │  └ src/index.ts
-   └ src/index.ts ───────────────── 49b ──── 2.3%
-
-
-  dist/index.esm.js ────────────── 1.2kb ─ 100.0%
-   ├ src/dev/create-state.dev.ts ─ 591b ─── 50.1%
+   ├ src/dev/create-state.dev.ts ─ 603b ─── 24.4%
    │  └ src/dev/index.ts
    │     └ src/index.ts
-   └ src/lib/create-state.ts ───── 546b ─── 46.3%
-      └ src/index.ts
+   └ src/index.ts ───────────────── 49b ──── 2.0%
+
+
+  dist/index.esm.js ────────────── 1.9kb ─ 100.0%
+   ├ src/lib/create-state.ts ───── 642b ─── 32.8%
+   │  └ src/index.ts
+   └ src/dev/create-state.dev.ts ─ 603b ─── 30.8%
+      └ src/dev/index.ts
+         └ src/index.ts
 
 ```
