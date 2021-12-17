@@ -5829,6 +5829,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csar", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#workspace:subs/csar"],
             ["css-loader", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:6.5.1"],
             ["esbuild-loader", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:2.16.0"],
+            ["fast-deep-equal", "npm:3.1.3"],
             ["html-webpack-plugin", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:5.5.0"],
             ["immer", "npm:9.0.7"],
             ["normalize.css", "npm:8.0.1"],

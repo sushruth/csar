@@ -1,15 +1,15 @@
 export type State = {
-  values: boolean[][];
-};
+  values: boolean[][]
+}
 
 export type Actions =
   | {
-      type: "mark";
+      type: 'mark'
       payload: {
-        x: number;
-        y: number;
-      };
+        x: number
+        y: number
+      }
     }
   | {
-      type: "clear";
-    };
+      type: 'clear'
+    }

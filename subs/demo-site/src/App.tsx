@@ -50,6 +50,7 @@ export default function App() {
                   dependencies: {
                     csar: '^0.1.0',
                     immer: '9.0.7',
+                    'fast-deep-equal': '^3.1.3',
                   },
                 }}
                 options={{

@@ -2,10 +2,12 @@ import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { CreateStateOptions, DeepReadonly } from "./create-state.types";
 
 const forceUpdate = (state: number) => state + 1;
+const notEqualDefault = (a: unknown, b: unknown) => a !== b;
 
 export function createState<State, Actions>({
   init,
   reducer,
+  notEqual = notEqualDefault,
 }: CreateStateOptions<State, Actions>) {
   const handlerMap = new Map<Function, Function>();
   const lastResultMap = new Map<Function, unknown>();
@@ -25,7 +27,7 @@ export function createState<State, Actions>({
         const lastResult = lastResultMap.get(fn);
         const newResult = fn(this._state);
 
-        if (newResult != lastResult) {
+        if (notEqual(newResult, lastResult)) {
           lastResultMap.set(fn, newResult);
           handler();
         }

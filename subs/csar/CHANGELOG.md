@@ -1,3 +1,9 @@
+## 0.2.0
+**Date:** 16 December 2021
+
+- Added a feature to customize equality check for selector results
+- Updated README with new instructions
+
 ## 0.1.1
 **Date:** 9 December 2021
 
