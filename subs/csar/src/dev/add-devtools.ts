@@ -1,4 +1,4 @@
-import { CreateStateOptionsWithDevtools } from "./create-state.dev.types";
+import { CreateStateOptionsWithDevtools } from "./add-devtools.types";
 import { CreateStateOptions, StateReducer } from "../lib/create-state.types";
 
 const devtoolsName = "__REDUX_DEVTOOLS_EXTENSION__";
