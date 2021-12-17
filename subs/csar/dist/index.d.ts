@@ -14,8 +14,21 @@ declare module "src/lib/create-state.types" {
     export type GetState<State> = () => DeepReadonly<State>;
     export type StateReducer<State, Actions> = (action: Actions, getState: GetState<State>, dispatch: Dispatch<Actions>) => State | DeepReadonly<State> | Promise<State> | Promise<DeepReadonly<State>>;
     export type CreateStateOptions<State, Actions> = {
+        /**
+         * Initial state
+         */
         init: State;
+        /**
+         * Reducer function
+         */
         reducer: StateReducer<State, Actions>;
+        /**
+         * A function that returns if previous result of a
+         * selector is different from its current result
+         * @param a previous result of a selector
+         * @param b next result of a selector
+         */
+        notEqual?: (a: unknown, b: unknown) => boolean;
     };
     export type UseSelector<State> = <SelectedValue>(fn: (state: State) => SelectedValue) => SelectedValue;
     export type CreateStateReturn<State, Actions> = [
@@ -26,10 +39,10 @@ declare module "src/lib/create-state.types" {
 }
 declare module "src/lib/create-state" {
     import { CreateStateOptions, DeepReadonly } from "src/lib/create-state.types";
-    export function createState<State, Actions>({ init, reducer, }: CreateStateOptions<State, Actions>): readonly [(action: Actions) => Promise<void>, <SelectedValue>(fn: (state: State) => SelectedValue) => SelectedValue, () => DeepReadonly<State>];
+    export function createState<State, Actions>({ init, reducer, notEqual, }: CreateStateOptions<State, Actions>): readonly [(action: Actions) => Promise<void>, <SelectedValue>(fn: (state: State) => SelectedValue) => SelectedValue, () => DeepReadonly<State>];
     export default createState;
 }
-declare module "src/dev/create-state.dev.types" {
+declare module "src/dev/add-devtools.types" {
     import { CreateStateOptions } from "src/lib/create-state.types";
     export type CreateStateOptionsWithDevtools<State, Actions> = CreateStateOptions<State, Actions> & {
         /** **For devtools only** - used as the name for reducer instance */
@@ -40,14 +53,14 @@ declare module "src/dev/create-state.dev.types" {
         reviver?: (this: any, key: string, value: any) => any;
     };
 }
-declare module "src/dev/create-state.dev" {
-    import { CreateStateOptionsWithDevtools } from "src/dev/create-state.dev.types";
+declare module "src/dev/add-devtools" {
+    import { CreateStateOptionsWithDevtools } from "src/dev/add-devtools.types";
     import { CreateStateOptions } from "src/lib/create-state.types";
-    export function addDevtools<State, Actions>({ init, reducer, name, replacer, reviver, }: CreateStateOptionsWithDevtools<State, Actions>): CreateStateOptions<State, Actions>;
+    export function addDevtools<State, Actions>({ init, reducer, name, replacer, reviver, ...rest }: CreateStateOptionsWithDevtools<State, Actions>): CreateStateOptions<State, Actions>;
 }
 declare module "src/dev/index" {
-    export * from "src/dev/create-state.dev";
-    export * from "src/dev/create-state.dev.types";
+    export * from "src/dev/add-devtools";
+    export * from "src/dev/add-devtools.types";
 }
 declare module "src/index" {
     export * from "src/lib/create-state";

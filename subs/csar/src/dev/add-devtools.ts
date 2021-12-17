@@ -19,6 +19,7 @@ export function addDevtools<State, Actions>({
   name,
   replacer,
   reviver,
+  ...rest
 }: CreateStateOptionsWithDevtools<State, Actions>): CreateStateOptions<
   State,
   Actions
@@ -74,8 +75,9 @@ export function addDevtools<State, Actions>({
     return {
       reducer: wrappedReducer,
       init,
+      ...rest
     };
   } else {
-    return { reducer, init }
+    return { reducer, init, ...rest }
   }
 }
