@@ -1,7 +1,7 @@
-import { Actions, State } from "./types";
-import { produce } from "immer";
-import { StateReducer } from "csar";
-import { init } from "./init";
+import { Actions, State } from './types'
+import { produce } from 'immer'
+import { StateReducer } from 'csar'
+import { init } from './init'
 
 export const reducer: StateReducer<State, Actions> = async (
   action,
@@ -9,12 +9,12 @@ export const reducer: StateReducer<State, Actions> = async (
   _dispatch
 ) => {
   switch (action.type) {
-    case "mark":
+    case 'mark':
       return produce(getState(), (draft) => {
-        draft.values[action.payload.x][action.payload.y] = true;
-      });
+        draft.values[action.payload.x][action.payload.y] = true
+      })
 
-    case "clear":
-      return init;
+    case 'clear':
+      return init
   }
-};
+}

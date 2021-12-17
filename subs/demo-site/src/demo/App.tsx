@@ -1,10 +1,10 @@
-import React from "react"
-import { DrawingSurface } from "./drawing-surface/drawing-surface"
+import React from 'react'
+import { DrawingSurface } from './drawing-surface/drawing-surface'
 
-import "./styles.css";
+import './styles.css'
 
 export const App = () => {
   return <DrawingSurface />
 }
 
-export default App;
+export default App

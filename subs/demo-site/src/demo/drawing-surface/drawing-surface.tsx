@@ -28,9 +28,9 @@ export const DrawingSurface: React.FC = () => {
       <div className="flex col center">
         <span>Draw with a mouse here</span>
         <span style={{ fontSize: '0.8rem', textAlign: 'center' }}>
-          Each "pixel" you see here is a <code>div</code> connected to state. moving mouse
-          over each one with click button down will fill the pixel. There are{' '}
-          {gridSize * gridSize} <code>div</code>s here in total.
+          Each "pixel" you see here is a <code>div</code> connected to state.
+          moving mouse over each one with click button down will fill the pixel.
+          There are {gridSize * gridSize} <code>div</code>s here in total.
         </span>
       </div>
       <div className="flex wrap drawing-container">{content}</div>
