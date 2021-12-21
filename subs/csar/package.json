@@ -1,12 +1,12 @@
 {
   "name": "csar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tiny external state management for react without contexts, with async reducers",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "src/index.ts",
+  "main": "src/index.ts",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
-    "types": "dist/index.d.ts"
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js"
   },
   "sideEffects": false,
   "repository": {

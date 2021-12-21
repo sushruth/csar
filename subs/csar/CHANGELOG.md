@@ -1,3 +1,8 @@
+## 0.2.1
+**Date:** 20 December 2021
+
+- Fixed types
+
 ## 0.2.0
 **Date:** 16 December 2021
 

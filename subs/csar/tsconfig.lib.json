@@ -3,8 +3,9 @@
   "compilerOptions": {
     "noEmit": false,
     "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
     "emitDeclarationOnly": true,
-    "outFile": "./dist/index.d.ts",
     "forceConsistentCasingInFileNames": false,
   },
   "include": [
