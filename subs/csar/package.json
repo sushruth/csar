@@ -1,6 +1,6 @@
 {
   "name": "csar",
-  "version": "0.3.0-beta.3",
+  "version": "0.3.0-beta.4",
   "description": "Tiny external state management for react without contexts, with async reducers",
   "type": "module",
   "exports": {
