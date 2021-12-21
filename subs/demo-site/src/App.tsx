@@ -48,7 +48,7 @@ export default function App() {
                 files={demoContent}
                 customSetup={{
                   dependencies: {
-                    csar: '^0.1.0',
+                    csar: 'latest',
                     immer: '9.0.7',
                     'fast-deep-equal': '^3.1.3',
                   },
