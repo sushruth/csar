@@ -1,24 +1,23 @@
 {
   "name": "csar",
-  "version": "0.2.0",
+  "version": "0.3.0-beta.3",
   "description": "Tiny external state management for react without contexts, with async reducers",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "src/index.ts",
-  "publishConfig": {
-    "types": "dist/index.d.ts"
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./dev": "./dist/dev/index.js"
   },
+  "types": "./src/index.ts",
+  "typings": "dist/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sushruth/csar.git"
   },
   "scripts": {
-    "compile": "node ./scripts/build.js --minify",
-    "typegen": "tsc -p ./tsconfig.lib.json",
-    "build": "yarn compile && yarn typegen",
+    "build": "tsc -p ./tsconfig.lib.json",
     "prepublish": "yarn build",
-    "watch": "yarn compile --watch",
+    "watch": "yarn compile -w",
     "test": "jest --config=./jest.config.js --verbose --runInBand"
   },
   "author": {
@@ -44,6 +43,11 @@
     "react-dom": "^17.0.2",
     "typescript": "4.5.2"
   },
+  "files": [
+    "dist",
+    "*.md",
+    "LICENSE"
+  ],
   "peerDependencies": {
     "react": "^16.12.0"
   },

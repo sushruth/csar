@@ -2,9 +2,10 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outFile": "./dist/index.d.ts",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "rootDir": "./src",
     "forceConsistentCasingInFileNames": false,
   },
   "include": [

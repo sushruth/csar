@@ -1,77 +1,79 @@
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
-import { CreateStateOptions, DeepReadonly } from "./create-state.types";
-
-const forceUpdate = (state: number) => state + 1;
-const notEqualDefault = (a: unknown, b: unknown) => a !== b;
+import { CreateStateOptions, DeepReadonly } from './create-state.types'
+import { notEqualDefault } from './defaults'
+import { getReactRenderer } from './react/react'
 
 export function createState<State, Actions>({
   init,
   reducer,
   notEqual = notEqualDefault,
 }: CreateStateOptions<State, Actions>) {
-  const handlerMap = new Map<Function, Function>();
-  const lastResultMap = new Map<Function, unknown>();
+  const handlerMap = new Map<Function, Function>()
+  const lastResultMap = new Map<Function, unknown>()
 
   const stateHolder = {
     _state: init,
     get state() {
-      return this._state;
+      return this._state
     },
     set state(newState: State) {
-      this._state = newState;
+      this._state = newState
 
       for (const [fn, handler] of handlerMap.entries()) {
         // Figure out a way to run handlers for ONLY the changed property
-        if (!handler) continue;
+        if (!handler) continue
 
-        const lastResult = lastResultMap.get(fn);
-        const newResult = fn(this._state);
+        const lastResult = lastResultMap.get(fn)
+        const newResult = fn(this._state)
 
         if (notEqual(newResult, lastResult)) {
-          lastResultMap.set(fn, newResult);
-          handler();
+          lastResultMap.set(fn, newResult)
+          handler()
         }
       }
     },
-  };
+  }
 
   function getState() {
-    return stateHolder.state as DeepReadonly<State>;
+    return stateHolder.state as DeepReadonly<State>
   }
 
   async function dispatch(action: Actions) {
-    const result = await reducer(action, getState, dispatch);
-    stateHolder.state = result as State;
+    const result = await reducer(action, getState, dispatch)
+    stateHolder.state = result as State
   }
 
-  function unregister(fn: Function) {
-    handlerMap.delete(fn);
-    lastResultMap.delete(fn);
+  function unregister(selector: Function) {
+    handlerMap.delete(selector)
+    lastResultMap.delete(selector)
   }
 
-  function useStateSelector<SelectedValue>(
-    fn: (state: State) => SelectedValue
+  function registerOnce<SelectedValue>(
+    selector: (state: State) => SelectedValue,
+    handler: Function
   ) {
-    const fnRef = useRef(fn);
-    const value = fnRef.current(stateHolder.state) as SelectedValue;
+    const value = selector(stateHolder.state) as SelectedValue
 
-    // re-render mechanism
-    // somehow useState seems to be less blocking than useReducer
-    const [, setState] = useState(0);
-    const rerender = useCallback(() => setState(forceUpdate), []);
-
-    // To unregister the handler when component unmounts
-    useEffect(() => () => unregister(fnRef.current), []);
-
-    if (!handlerMap.has(fnRef.current)) {
-      handlerMap.set(fnRef.current, rerender);
-      lastResultMap.set(fnRef.current, value);
+    if (!handlerMap.has(selector)) {
+      handlerMap.set(selector, handler)
+      lastResultMap.set(selector, value)
     }
 
-    return value;
+    return value
   }
 
-  return [dispatch, useStateSelector, getState] as const;
-}
+  /**
+   * Returns a function that returns the result of a selector
+   * @param selector Selector function that takes in state and returns a part of it
+   * @param getRenderer a function that takes in the selector function and returns a function that can be used to force update the component
+   * @returns the selected part of the state
+   */
+  function useStateSelector<
+    SelectedValue,
+    Selector extends (state: State) => SelectedValue
+  >(selector: Selector, getRenderer = getReactRenderer) {
+    const renderer = getRenderer(selector, unregister)
+    return registerOnce(selector, renderer)
+  }
 
-export default createState;
+  return [dispatch, useStateSelector, getState] as const
+}
