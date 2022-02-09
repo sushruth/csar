@@ -1815,7 +1815,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.3"],
             ["@testing-library/dom", "npm:8.11.1"],
             ["@types/react", "npm:17.0.36"],
-            ["@types/react-dom", null],
+            ["@types/react-dom", "npm:17.0.11"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:17.0.2"]
           ],
@@ -1834,7 +1834,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.16.3"],
             ["@testing-library/dom", "npm:8.11.1"],
             ["@types/react", "npm:17.0.37"],
-            ["@types/react-dom", null],
+            ["@types/react-dom", "npm:17.0.11"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:17.0.2"]
           ],
@@ -1869,6 +1869,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-test-renderer", null]
           ],
           "packagePeers": [
+            "@types/react-dom",
             "@types/react",
             "react-dom",
             "react-test-renderer",
@@ -1890,6 +1891,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-test-renderer", null]
           ],
           "packagePeers": [
+            "@types/react-dom",
             "@types/react",
             "react-dom",
             "react-test-renderer",
@@ -5359,6 +5361,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.3"],
             ["@types/node", "npm:16.11.9"],
             ["@types/react", "npm:17.0.37"],
+            ["@types/react-dom", "npm:17.0.11"],
             ["esbuild", "npm:0.14.2"],
             ["esbuild-jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:0.5.0"],
             ["jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:27.4.3"],
@@ -5382,6 +5385,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:27.0.3"],
             ["@types/node", "npm:16.11.9"],
             ["@types/react", "npm:17.0.36"],
+            ["@types/react-dom", "npm:17.0.11"],
             ["esbuild", "npm:0.14.2"],
             ["esbuild-jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:0.5.0"],
             ["jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:27.4.3"],

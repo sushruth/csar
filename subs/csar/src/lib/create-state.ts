@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import { unstable_batchedUpdates } from "react-dom";
 import { CreateStateOptions, DeepReadonly } from "./create-state.types";
 
 const forceUpdate = (state: number) => state + 1;
@@ -20,18 +21,20 @@ export function createState<State, Actions>({
     set state(newState: State) {
       this._state = newState;
 
-      for (const [fn, handler] of handlerMap.entries()) {
-        // Figure out a way to run handlers for ONLY the changed property
-        if (!handler) continue;
-
-        const lastResult = lastResultMap.get(fn);
-        const newResult = fn(this._state);
-
-        if (notEqual(newResult, lastResult)) {
-          lastResultMap.set(fn, newResult);
-          handler();
+      unstable_batchedUpdates(() => {
+        for (const [fn, handler] of handlerMap.entries()) {
+          // Figure out a way to run handlers for ONLY the changed property
+          if (!handler) continue;
+  
+          const lastResult = lastResultMap.get(fn);
+          const newResult = fn(this._state);
+  
+          if (notEqual(newResult, lastResult)) {
+            lastResultMap.set(fn, newResult);
+            handler();
+          }
         }
-      }
+      });
     },
   };
 
