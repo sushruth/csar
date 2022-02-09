@@ -5371,7 +5371,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.5.2#~builtin<compat/typescript>::version=4.5.2&hash=493e53"]
           ],
           "packagePeers": [
+            "@types/react-dom",
             "@types/react",
+            "react-dom",
             "react"
           ],
           "linkType": "SOFT",

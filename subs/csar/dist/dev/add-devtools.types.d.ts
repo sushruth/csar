@@ -1,4 +1,4 @@
-import { CreateStateOptions } from "../lib/create-state.types";
+import { CreateStateOptions } from '../lib/create-state.types';
 export declare type CreateStateOptionsWithDevtools<State, Actions> = CreateStateOptions<State, Actions> & {
     /** **For devtools only** - used as the name for reducer instance */
     name?: string;

@@ -16,7 +16,7 @@ npm i -E csar
 yarn add -E csar
 ```
 
-Needs `react@^16.12.0` to work. This only works with function components for now.
+Needs `react >= 16.12.0` and `react-dom >= 16.12.0` to work. This only works with function components for now.
 
 ## Usage
 

@@ -1,3 +1,8 @@
+## 0.2.3
+**Date:** 80 February 2022
+
+- Using `unstable_batchedUpdates` from `react-dom` to help batch possible updates.
+
 ## 0.2.1
 **Date:** 20 December 2021
 
