@@ -8,7 +8,7 @@ export type DeepReadonly<T> = T extends Function | Primitive
   ? ReadonlySetDeep<ItemType>
   : T extends object
   ? DeepReadonlyObject<T>
-  : T;
+  : T
 
 export type Primitive =
   | null
@@ -17,43 +17,39 @@ export type Primitive =
   | number
   | boolean
   | symbol
-  | bigint;
+  | bigint
 
-interface DeepReadonlyArray<T> extends ReadonlyArray<DeepReadonly<T>> { }
+interface DeepReadonlyArray<T> extends ReadonlyArray<DeepReadonly<T>> {}
 
 type DeepReadonlyObject<T> = {
-  readonly [P in keyof T]: DeepReadonly<T[P]>;
-};
+  readonly [P in keyof T]: DeepReadonly<T[P]>
+}
 
 interface DeepReadonlyMap<K, V>
-  extends ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>> { }
+  extends ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>> {}
 
 interface ReadonlySetDeep<ItemType>
-  extends ReadonlySet<DeepReadonly<ItemType>> { }
+  extends ReadonlySet<DeepReadonly<ItemType>> {}
 
-export type Dispatch<Actions> = (action: Actions) => Promise<void>;
-export type GetState<State> = () => DeepReadonly<State>;
+export type Dispatch<Actions> = (action: Actions) => Promise<void>
+export type GetState<State> = () => DeepReadonly<State>
 
 export type StateReducer<State, Actions> = (
   action: Actions,
   getState: GetState<State>,
   dispatch: Dispatch<Actions>
-) =>
-  | State
-  | DeepReadonly<State>
-  | Promise<State>
-  | Promise<DeepReadonly<State>>;
+) => State | DeepReadonly<State> | Promise<State> | Promise<DeepReadonly<State>>
 
 export type CreateStateOptions<State, Actions> = {
   /**
    * Initial state
    */
-  init: State;
+  init: State
 
   /**
    * Reducer function
    */
-  reducer: StateReducer<State, Actions>;
+  reducer: StateReducer<State, Actions>
 
   /**
    * A function that returns if previous result of a
@@ -61,15 +57,15 @@ export type CreateStateOptions<State, Actions> = {
    * @param a previous result of a selector
    * @param b next result of a selector
    */
-  notEqual?: (a: unknown, b: unknown) => boolean;
-};
+  notEqual?: (a: unknown, b: unknown) => boolean
+}
 
 export type UseSelector<State> = <SelectedValue>(
   fn: (state: State) => SelectedValue
-) => SelectedValue;
+) => SelectedValue
 
 export type CreateStateReturn<State, Actions> = [
   dispatch: Dispatch<Actions>,
   useSelector: UseSelector<State>,
   getState: GetState<State>
-];
+]
