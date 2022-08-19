@@ -10,5 +10,6 @@
     "csar",
     "prismjs",
     "Sandpack"
-  ]
+  ],
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js"
 }
