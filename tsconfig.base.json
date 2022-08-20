@@ -9,16 +9,10 @@
     "target": "es6",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "@types/react",
-      "@types/node"
-    ],
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom"],
+    "types": ["@types/react", "@types/node"],
     "downlevelIteration": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   }
 }

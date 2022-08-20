@@ -1,18 +1,16 @@
-import React from 'react'
-import { hydrate, render } from 'react-dom'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App'
 
 import 'normalize.css/normalize.css'
 
-// somehow this file isn't right.
-//@ts-expect-error
-import * as some from '@codesandbox/sandpack-react/dist/index.css'
-
-some
-
 const rootElement = document.getElementById('app')
+
+if (!rootElement) {
+  throw new Error('No root element found')
+}
+
 if (rootElement?.hasChildNodes()) {
-  hydrate(<App />, rootElement)
+  hydrateRoot(rootElement, <App />)
 } else {
-  render(<App />, rootElement)
+  createRoot(rootElement).render(<App />)
 }

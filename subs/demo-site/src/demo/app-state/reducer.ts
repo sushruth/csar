@@ -1,16 +1,16 @@
 import { Actions, State } from './types'
 import { produce } from 'immer'
-import { StateReducer } from 'csar'
 import { init } from './init'
+import { AsyncReducer } from 'csar'
 
-export const reducer: StateReducer<State, Actions> = async (
+export const reducer: AsyncReducer<State, Actions> = async (
   action,
   getState,
   _dispatch
 ) => {
   switch (action.type) {
     case 'mark':
-      return produce(getState(), (draft) => {
+      return produce(getState() as State, (draft) => {
         draft.values[action.payload.x][action.payload.y] = true
       })
 

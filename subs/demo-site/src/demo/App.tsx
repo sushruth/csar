@@ -1,4 +1,3 @@
-import React from 'react'
 import { DrawingSurface } from './drawing-surface/drawing-surface'
 
 import './styles.css'

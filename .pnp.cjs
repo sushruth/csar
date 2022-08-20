@@ -6418,7 +6418,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["extract-zip", "npm:1.7.0"],\
             ["concat-stream", "npm:1.6.2"],\
             ["debug", "virtual:3c4f7f349789d7597b53f6806dcbf71445596dd97a6a139314a632324e544d12b73623cfb0621bb9d37d8830b5ffbaf5935d9d709ca211a5a162bb877a1524e9#npm:2.6.9"],\
-            ["mkdirp", "npm:0.5.5"],\
+            ["mkdirp", "npm:0.5.6"],\
             ["yauzl", "npm:2.10.0"]\
           ],\
           "linkType": "HARD"\
@@ -9167,10 +9167,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:0.5.5", {\
-          "packageLocation": "./.yarn/cache/mkdirp-npm-0.5.5-6bc76534fc-3bce20ea52.zip/node_modules/mkdirp/",\
+        ["npm:0.5.6", {\
+          "packageLocation": "./.yarn/cache/mkdirp-npm-0.5.6-dcd5a6b97b-0c91b721bb.zip/node_modules/mkdirp/",\
           "packageDependencies": [\
-            ["mkdirp", "npm:0.5.5"],\
+            ["mkdirp", "npm:0.5.6"],\
             ["minimist", "npm:1.2.6"]\
           ],\
           "linkType": "HARD"\

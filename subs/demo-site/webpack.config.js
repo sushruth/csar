@@ -30,6 +30,7 @@ module.exports = async () => {
           options: {
             loader: 'tsx',
             target: 'es2017',
+            jsx: 'automatic',
           },
         },
       ],

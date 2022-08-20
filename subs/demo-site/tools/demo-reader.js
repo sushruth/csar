@@ -17,7 +17,7 @@ async function getDemoContents() {
         await walk(path)
       } else {
         const rel = relative(demoDir, path)
-        const entryKey = `/src/${rel.replace(sep, '/')}`
+        const entryKey = `/${rel.replace(sep, '/')}`
         const fileContent = readFileSync(path, 'utf8')
 
         Object.assign(result, { [entryKey]: JSON.stringify(fileContent) })
@@ -31,5 +31,5 @@ async function getDemoContents() {
 }
 
 module.exports = {
-  getDemoContents
+  getDemoContents,
 }
