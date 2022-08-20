@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react-hooks'
-import { StateReducer } from './create-state.types'
-import { createState } from './create-state'
+import { renderHook } from '@testing-library/react'
+import { AsyncReducer } from '..'
+import { createAsyncState } from './create-state'
 
 describe('create-state', () => {
   type State = {
@@ -18,7 +18,7 @@ describe('create-state', () => {
     foo: 'bar',
   }
 
-  const reducer: StateReducer<State, Actions> = (
+  const reducer: AsyncReducer<State, Actions> = (
     action,
     getState,
     dispatch
@@ -35,17 +35,34 @@ describe('create-state', () => {
     }
   }
 
-  it('should create state', () => {
-    const [, , getState] = createState({ init, reducer })
+  it('should create state successfully', () => {
+    const [, useAsyncState] = createAsyncState(reducer, init)
 
-    expect(getState()).toEqual(init)
+    const result = useAsyncState.getState()
+
+    expect(result.foo).toEqual(init.foo)
   })
 
-  it('should render hook successfully', () => {
-    const [, useSelector] = createState({ init, reducer })
-
-    const { result } = renderHook(() => useSelector((state) => state.foo))
+  it('should create state hook successfully', () => {
+    const [, useAsyncState] = createAsyncState(reducer, init)
+    const { result } = renderHook(() => useAsyncState((state) => state.foo))
 
     expect(result.current).toEqual(init.foo)
+  })
+
+  it('should dispatch successfully', async () => {
+    const [dispatch, useAsyncState] = createAsyncState(reducer, init)
+    const value = 'another'
+
+    await dispatch({
+      type: 'setFoo',
+      payload: {
+        value,
+      },
+    })
+
+    const { result } = renderHook(() => useAsyncState((state) => state.foo))
+
+    expect(result.current).toEqual(value)
   })
 })

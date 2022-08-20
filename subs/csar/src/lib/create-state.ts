@@ -1,80 +1,35 @@
-import { useCallback, useEffect, useReducer, useRef, useState } from 'react'
-import { unstable_batchedUpdates } from 'react-dom'
-import { CreateStateOptions, DeepReadonly } from './create-state.types'
+import type { StateCreator } from 'zustand'
+import create from 'zustand'
+import { ActionProto, AsyncReducer, AsyncDispatch } from '..'
+import { DeepReadonly } from './deep-readonly.types'
 
-const forceUpdate = (state: number) => state + 1
-const notEqualDefault = (a: unknown, b: unknown) => a !== b
+/**
+ * This function largely follows the zustand redux middleware format
+ * https://github.com/pmndrs/zustand/blob/main/src/middleware/redux.ts
+ */
+export function asyncRedux<S extends object, A extends ActionProto>(
+  reducer: AsyncReducer<S, A>,
+  initial: S
+) {
+  type State = {
+    dispatch: AsyncDispatch<A>
+  } & S
 
-export function createState<State, Actions>({
-  init,
-  reducer,
-  notEqual = notEqualDefault,
-}: CreateStateOptions<State, Actions>) {
-  const handlerMap = new Map<Function, Function>()
-  const lastResultMap = new Map<Function, unknown>()
-
-  const stateHolder = {
-    _state: init,
-    get state() {
-      return this._state
-    },
-    set state(newState: State) {
-      this._state = newState
-
-      unstable_batchedUpdates(() => {
-        for (const [fn, handler] of handlerMap.entries()) {
-          // Figure out a way to run handlers for ONLY the changed property
-          if (!handler) continue
-
-          const lastResult = lastResultMap.get(fn)
-          const newResult = fn(this._state)
-
-          if (notEqual(newResult, lastResult)) {
-            lastResultMap.set(fn, newResult)
-            handler()
-          }
-        }
-      })
-    },
-  }
-
-  function getState() {
-    return stateHolder.state as DeepReadonly<State>
-  }
-
-  async function dispatch(action: Actions) {
-    const result = await reducer(action, getState, dispatch)
-    stateHolder.state = result as State
-  }
-
-  function unregister(fn: Function) {
-    handlerMap.delete(fn)
-    lastResultMap.delete(fn)
-  }
-
-  function useStateSelector<SelectedValue>(
-    fn: (state: State) => SelectedValue
-  ) {
-    const fnRef = useRef(fn)
-    const value = fnRef.current(stateHolder.state) as SelectedValue
-
-    // re-render mechanism
-    // somehow useState seems to be less blocking than useReducer
-    const [, setState] = useState(0)
-    const rerender = useCallback(() => setState(forceUpdate), [])
-
-    // To unregister the handler when component unmounts
-    useEffect(() => () => unregister(fnRef.current), [])
-
-    if (!handlerMap.has(fnRef.current)) {
-      handlerMap.set(fnRef.current, rerender)
-      lastResultMap.set(fnRef.current, value)
+  const adapter: StateCreator<State> = (set, get) => {
+    async function dispatch(action: A) {
+      set(await reducer(action, get as () => DeepReadonly<S>, dispatch))
     }
 
-    return value
+    return { dispatch, ...initial }
   }
 
-  return [dispatch, useStateSelector, getState] as const
+  return adapter
 }
 
-export default createState
+export function createAsyncState<S extends object, A extends ActionProto>(
+  reducer: AsyncReducer<S, A>,
+  initial: S
+) {
+  const stateHook = create(asyncRedux(reducer, initial))
+  return [stateHook.getState().dispatch, stateHook] as const
+}
