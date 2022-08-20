@@ -11,7 +11,17 @@ export default function App() {
         <h1>
           <code className="title shrink">csar</code>
         </h1>
-        <span className="subtitle">Context-less state with async reducers</span>
+        <span className="subtitle">
+          A
+          <a target="_blank" href="https://github.com/pmndrs/zustand">
+            <code>zustand</code>
+          </a>
+          middleware for async reducers
+        </span>
+        <span>
+          <code className="language-tsx">csar</code> stands for "Context-less
+          state with async reducers"
+        </span>
         <div className="flex spaced center wrap">
           <a className="flex center" href="https://www.npmjs.com/package/csar">
             <img
@@ -64,10 +74,8 @@ export default function App() {
           <div className="card flex full col">
             <span className="header">What is this?</span>
             <div>
-              <code className="language-tsx">csar</code> is a{' '}
-              <a href="https://github.com/pmndrs/zustand">
-                <code>zustand</code>
-              </a>{' '}
+              <code className="language-tsx">csar</code> is a
+              <code>zustand</code>
               middleware that allows you to create a state and manage it with an
               async reducer. It's pretty much like zustand's redux middleware,
               except that
