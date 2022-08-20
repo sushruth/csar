@@ -18,7 +18,6 @@
     "@types/react": "18.0.17",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
-    "@yarnpkg/builder": "4.0.0-rc.14",
     "eslint": "8.22.0",
     "eslint-plugin-react": "7.30.1",
     "eslint-plugin-react-hooks": "4.6.0",
