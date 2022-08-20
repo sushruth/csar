@@ -4585,15 +4585,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:18.2.0"],\
             ["ts-jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:28.0.8"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
-            ["use-sync-external-store", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0"],\
             ["zustand", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:4.1.0"]\
           ],\
           "packagePeers": [\
-            "@types/react-dom",\
-            "@types/react",\
             "@types/zustand",\
-            "react-dom",\
-            "react",\
             "zustand"\
           ],\
           "linkType": "SOFT"\
@@ -4616,7 +4611,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:18.2.0"],\
             ["ts-jest", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:28.0.8"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
-            ["use-sync-external-store", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0"],\
             ["zustand", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:4.1.0"]\
           ],\
           "linkType": "SOFT"\
@@ -11993,10 +11987,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-e5b08b19e5/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
+        ["virtual:cfdee5678ab7faaa8144b1274f7b14d08989e7ffd20f75ae5ccc56d5006ad2e79e3bb24da5f995f59d141b240018b9019c3eff4525508c41d03b16ea14ebde53#npm:1.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-143acb200f/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
           "packageDependencies": [\
-            ["use-sync-external-store", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0"],\
+            ["use-sync-external-store", "virtual:cfdee5678ab7faaa8144b1274f7b14d08989e7ffd20f75ae5ccc56d5006ad2e79e3bb24da5f995f59d141b240018b9019c3eff4525508c41d03b16ea14ebde53#npm:1.2.0"],\
             ["@types/react", "npm:18.0.17"],\
             ["react", "npm:18.2.0"]\
           ],\
@@ -12666,7 +12660,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.17"],\
             ["immer", "npm:9.0.15"],\
             ["react", "npm:18.2.0"],\
-            ["use-sync-external-store", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0"]\
+            ["use-sync-external-store", "virtual:cfdee5678ab7faaa8144b1274f7b14d08989e7ffd20f75ae5ccc56d5006ad2e79e3bb24da5f995f59d141b240018b9019c3eff4525508c41d03b16ea14ebde53#npm:1.2.0"]\
           ],\
           "packagePeers": [\
             "@types/immer",\
@@ -12684,7 +12678,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.17"],\
             ["immer", null],\
             ["react", "npm:18.2.0"],\
-            ["use-sync-external-store", "virtual:8063c9b4139f81695108a4024cb8656f28528cf3063147135778d378de598e40849229b1cfa1b42120f4dfe69206ab9b95b28c0ba09dbac4fb3e9e23c57a5545#npm:1.2.0"]\
+            ["use-sync-external-store", "virtual:cfdee5678ab7faaa8144b1274f7b14d08989e7ffd20f75ae5ccc56d5006ad2e79e3bb24da5f995f59d141b240018b9019c3eff4525508c41d03b16ea14ebde53#npm:1.2.0"]\
           ],\
           "packagePeers": [\
             "@types/immer",\

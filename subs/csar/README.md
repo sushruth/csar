@@ -1,14 +1,12 @@
 # `csar`
 
-Short for "**Context-less state & async reducers**". A simple external state helper for react with a reducer-like API.
+Short for "**Context-less state & async reducers**". A zustand middleware that allows for async reducers. The "context-less state" part is achieved by zustand while te "async reducers" part is achieved with this middleware.
+
+This library used to provide both by itself before. Now it moved on to using zustand since there is a lot of cool work going on with zustand!.
+
+Props to zustand! - https://github.com/pmndrs/zustand
 
 [![codecov](https://codecov.io/gh/sushruth/csar/branch/main/graph/badge.svg?token=2RR6NQJO7R)](https://codecov.io/gh/sushruth/csar)
-
-## Why?
-
-I wanted to recreate what [zustand](https://github.com/pmndrs/zustand) / [jotai](https://github.com/pmndrs/jotai) / [valtio](https://github.com/pmndrs/valtio) do but smaller. I ended up with something that has fewer features and maybe even less optimized. If you want a more production-tested library, look to those.
-
-However, `csar` is about **672 bytes** minified, by itself, when devtools aren't included (can be tree-shaken away for prod builds). I like that. It makes it easier for me to make other smaller libraries which need this type of global state. It has a few benefits too.
 
 ## Install
 
@@ -18,21 +16,19 @@ npm i -E csar
 yarn add -E csar
 ```
 
-Needs `react >= 16.12.0` and `react-dom >= 16.12.0` to work. This only works with function components for now.
-
 ## Usage
 
-`createState` function takes in an object with an initial state and a reducer.
+`createAsyncState` function takes in an object with an initial state and a reducer.
 
 ```tsx
-import { createState } from "csar";
+import { createAsyncState } from "csar";
 
-const [dispatch, useStateSelector] = createState({
-  init: {}, // initial state
+const [dispatch, useStateSelector] = createAsyncState(
   async reducer(action, getState, dispatch) { // async reducer
     // reducer logic here
-  }
-});
+  },
+  initialState, // initial state
+);
 ```
 
 The selector and dispatch returned by the function can be used in any react component like this - 
@@ -54,23 +50,6 @@ function UserView({ id }) {
 
 Example project is [available here](https://github.com/sushruth/csar/tree/main/subs/demo-site) for more details on usage.
 
-## Customizing equality check
-
-`useStateSelector` relies on `!==` equality check to compare the result of the selector function between dispatches to determine if a re-render is necessary. This equality check can be customized by passing the `notEqual` function in the options like below - 
-
-```tsx
-import equal from 'fast-deep-equal/es6'
-import { createState } from "csar";
-
-const [dispatch, useStateSelector] = createState({
-  init,
-  reducer,
-  noEqual: (a, b) => !equal(a, b),
-});
-```
-
-Note that this has performance implications and must be carefully evaluated.
-
 ## Computed values
 
 Best way to have computed values from state using `csar` is to have custom hooks for them - 
@@ -83,12 +62,9 @@ function useUserFullName(id) {
 }
 ```
 
-## Benefits of `csar`
+> Note: I am working on a few extra middlewares that provide a better API for computed values. This section may change soon.
 
-1. No global providers - fewer whole-tree re-renders
-2. It is tiny
-3. Supports basic debugging with redux devtools
-4. Async reducers (more below)
+# Async Reducers
 
 ## Differences from a usual reducer
 
@@ -124,20 +100,17 @@ if you call `getState()` at the very end of your async handler for a given actio
 
 ```
 
-  dist/index.cjs.js ────────── 2.7kb ─ 100.0%
-   ├ src/dev/add-devtools.ts ─ 679b ─── 24.8%
-   │  └ src/dev/index.ts
-   │     └ src/index.ts
-   ├ src/lib/create-state.ts ─ 670b ─── 24.5%
-   │  └ src/index.ts
-   └ src/index.ts ───────────── 49b ──── 1.8%
-
-
-  dist/index.esm.js ────────── 2.2kb ─ 100.0%
-   ├ src/dev/add-devtools.ts ─ 679b ─── 30.5%
-   │  └ src/dev/index.ts
-   │     └ src/index.ts
-   └ src/lib/create-state.ts ─ 672b ─── 30.2%
+  dist/index.esm.js ────────── 843b ── 100.0%
+   └ src/lib/create-state.ts ─ 208b ─── 24.7%
       └ src/index.ts
 
+  dist/index.cjs.js ────────── 1.4kb ─ 100.0%
+   ├ src/lib/create-state.ts ─ 225b ─── 16.2%
+   │  └ src/index.ts
+   └ src/index.ts ───────────── 76b ──── 5.5%
+
 ```
+
+## Thanks
+
+Thanks to [@pmndrs](https://github.com/pmndrs) for the library.
