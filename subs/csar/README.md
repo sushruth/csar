@@ -2,6 +2,8 @@
 
 Short for "**Context-less state & async reducers**". A simple external state helper for react with a reducer-like API.
 
+[![codecov](https://codecov.io/gh/sushruth/csar/branch/main/graph/badge.svg?token=2RR6NQJO7R)](https://codecov.io/gh/sushruth/csar)
+
 ## Why?
 
 I wanted to recreate what [zustand](https://github.com/pmndrs/zustand) / [jotai](https://github.com/pmndrs/jotai) / [valtio](https://github.com/pmndrs/valtio) do but smaller. I ended up with something that has fewer features and maybe even less optimized. If you want a more production-tested library, look to those.

@@ -1,3 +1,10 @@
+# 1.0.0
+
+## Breaking changes:
+- This library is now a zustand middleware. [See the docs](https://github.com/pmndrs/zustand).
+- `createState` is now `createAsyncState`.
+- 
+
 ## 0.2.3
 **Date:** 80 February 2022
 
