@@ -26,6 +26,8 @@
   },
   "resolutions": {
     "follow-redirects": "1.14.7",
-    "node-fetch": "2.6.7"
+    "node-fetch": "2.6.7",
+    "minimist@^1.2.0": "1.2.6",
+    "minimist@^1.2.5": "1.2.6"
   }
 }
