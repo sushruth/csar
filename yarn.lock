@@ -912,16 +912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/state@npm:^0.19.0, @codemirror/state@npm:^0.19.2, @codemirror/state@npm:^0.19.3, @codemirror/state@npm:^0.19.4":
-  version: 0.19.6
-  resolution: "@codemirror/state@npm:0.19.6"
-  dependencies:
-    "@codemirror/text": ^0.19.0
-  checksum: 65bee46d76c0b55b10ed4818cbb77267a6c75dff3c8cc04e83056a79a1d36e79d7b8bf750d4695238ac28fe792d6329939fd725839f8314eee34146941cae344
-  languageName: node
-  linkType: hard
-
-"@codemirror/state@npm:^0.19.6":
+"@codemirror/state@npm:0.19.9":
   version: 0.19.9
   resolution: "@codemirror/state@npm:0.19.9"
   dependencies:
