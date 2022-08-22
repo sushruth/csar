@@ -33,6 +33,7 @@
     "@codemirror/state@^0.19.2": "0.19.9",
     "@codemirror/state@^0.19.3": "0.19.9",
     "@codemirror/state@^0.19.4": "0.19.9",
-    "@codemirror/state@^0.19.6": "0.19.9"
+    "@codemirror/state@^0.19.6": "0.19.9",
+    "mkdirp@0.5.1": "0.5.6"
   }
 }

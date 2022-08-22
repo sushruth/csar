@@ -9061,13 +9061,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["minimist", [\
-        ["npm:0.0.8", {\
-          "packageLocation": "./.yarn/cache/minimist-npm-0.0.8-8139f8b2f5-042f8b626b.zip/node_modules/minimist/",\
-          "packageDependencies": [\
-            ["minimist", "npm:0.0.8"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:1.2.6", {\
           "packageLocation": "./.yarn/cache/minimist-npm-1.2.6-f4cee4b4af-d15428cd1e.zip/node_modules/minimist/",\
           "packageDependencies": [\
@@ -9151,14 +9144,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mkdirp", [\
-        ["npm:0.5.1", {\
-          "packageLocation": "./.yarn/cache/mkdirp-npm-0.5.1-33a164c39d-ed1ab49bb1.zip/node_modules/mkdirp/",\
-          "packageDependencies": [\
-            ["mkdirp", "npm:0.5.1"],\
-            ["minimist", "npm:0.0.8"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:0.5.6", {\
           "packageLocation": "./.yarn/cache/mkdirp-npm-0.5.6-dcd5a6b97b-0c91b721bb.zip/node_modules/mkdirp/",\
           "packageDependencies": [\
@@ -10384,7 +10369,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["highland", "npm:2.13.0"],\
             ["html-minifier", "npm:3.5.21"],\
             ["minimalcss", "npm:0.8.1"],\
-            ["mkdirp", "npm:0.5.1"],\
+            ["mkdirp", "npm:0.5.6"],\
             ["puppeteer", "npm:1.20.0"],\
             ["serve-static", "npm:1.13.2"],\
             ["sourcemapped-stacktrace-node", "npm:2.1.8"]\
