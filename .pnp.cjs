@@ -5832,7 +5832,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild", "npm:0.14.54"],\
             ["joycon", "npm:3.1.1"],\
             ["json5", "npm:2.2.0"],\
-            ["loader-utils", "npm:2.0.2"],\
+            ["loader-utils", "npm:2.0.3"],\
             ["tapable", "npm:2.2.1"],\
             ["webpack", "virtual:4999557f978757d5724a12a6217f2c1d37c92f68896bb3cf995eeffd84d65939fad96b402f638b57ae1a55ae64f1bde5bc6b0179cf6daf89143c355726d1f7ee#npm:5.74.0"],\
             ["webpack-sources", "npm:2.3.1"]\
@@ -8688,10 +8688,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["loader-utils", [\
-        ["npm:2.0.2", {\
-          "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.2-c693411911-9078d1ed47.zip/node_modules/loader-utils/",\
+        ["npm:2.0.3", {\
+          "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.3-4d761d6a51-d055c61ce5.zip/node_modules/loader-utils/",\
           "packageDependencies": [\
-            ["loader-utils", "npm:2.0.2"],\
+            ["loader-utils", "npm:2.0.3"],\
             ["big.js", "npm:5.2.2"],\
             ["emojis-list", "npm:3.0.0"],\
             ["json5", "npm:2.2.0"]\
